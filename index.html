@@ -19,7 +19,27 @@
     </style>
 </head>
 <body class="flex items-center justify-center min-h-screen p-4 sm:p-6 lg:p-8">
-    <div class="w-full max-w-4xl bg-white shadow-xl rounded-2xl p-6 sm:p-8 lg:p-10 border border-gray-200">
+    <div id="login-container" class="w-full max-w-sm bg-white shadow-xl rounded-2xl p-6 sm:p-8 lg:p-10 border border-gray-200">
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-center text-indigo-800 mb-6">Login</h1>
+        <form id="login-form" class="space-y-6">
+            <div>
+                <label for="username" class="block text-sm font-medium text-gray-700">Utilizador</label>
+                <input type="text" id="username" name="username" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-2 border">
+            </div>
+            <div>
+                <label for="password" class="block text-sm font-medium text-gray-700">Palavra-Passe</label>
+                <input type="password" id="password" name="password" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-2 border">
+            </div>
+            <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-full shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-300 ease-in-out transform hover:scale-105">
+                Entrar
+            </button>
+        </form>
+        <button id="collaborator-button" class="w-full mt-4 flex justify-center py-3 px-4 border border-gray-300 rounded-full shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-300 ease-in-out transform hover:scale-105">
+            Entrar como Colaborador
+        </button>
+    </div>
+
+    <div id="form-container" class="w-full max-w-4xl bg-white shadow-xl rounded-2xl p-6 sm:p-8 lg:p-10 border border-gray-200 hidden">
         <!-- Título do Formulário -->
         <h1 class="text-3xl sm:text-4xl font-extrabold text-center text-indigo-800 mb-2">Ficha de Formação Inicial</h1>
         <p class="text-md sm:text-lg text-center text-gray-500 mb-8">Preencha as informações para o novo colaborador remoto.</p>
@@ -61,79 +81,9 @@
             <!-- Seção 3: Corpo da Formação -->
             <div>
                 <h2 class="text-xl sm:text-2xl font-bold text-indigo-700 border-b-2 border-indigo-200 pb-2 mb-4"><i class="fas fa-clipboard-list mr-2"></i>Corpo da Formação</h2>
-                <div class="space-y-3">
-                    <div class="flex items-start">
-                        <div class="flex items-center h-5 mt-1">
-                            <input id="formacao-1" type="checkbox" name="training_topics" value="Aplicação Jibble – Pontos" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
-                        </div>
-                        <div class="ml-3 text-sm">
-                            <label for="formacao-1" class="font-medium text-gray-700">Aplicação Jibble – Pontos</label>
-                        </div>
-                    </div>
-                    <div class="flex items-start">
-                        <div class="flex items-center h-5 mt-1">
-                            <input id="formacao-2" type="checkbox" name="training_topics" value="27 - Embalamento" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
-                        </div>
-                        <div class="ml-3 text-sm">
-                            <label for="formacao-2" class="font-medium text-gray-700">27 - Embalamento</label>
-                        </div>
-                    </div>
-                    <div class="flex items-start">
-                        <div class="flex items-center h-5 mt-1">
-                            <input id="formacao-3" type="checkbox" name="training_topics" value="24 - Recolha de encomendas" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
-                        </div>
-                        <div class="ml-3 text-sm">
-                            <label for="formacao-3" class="font-medium text-gray-700">24 - Recolha de encomendas</label>
-                        </div>
-                    </div>
-                    <div class="flex items-start">
-                        <div class="flex items-center h-5 mt-1">
-                            <input id="formacao-4" type="checkbox" name="training_topics" value="19 - Procedimento de expedição – GLS" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
-                        </div>
-                        <div class="ml-3 text-sm">
-                            <label for="formacao-4" class="font-medium text-gray-700">19 - Procedimento de expedição – GLS</label>
-                        </div>
-                    </div>
-                    <div class="flex items-start">
-                        <div class="flex items-center h-5 mt-1">
-                            <input id="formacao-5" type="checkbox" name="training_topics" value="17 - Entrada de produtos" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
-                        </div>
-                        <div class="ml-3 text-sm">
-                            <label for="formacao-5" class="font-medium text-gray-700">17 - Entrada de produtos</label>
-                        </div>
-                    </div>
-                    <div class="flex items-start">
-                        <div class="flex items-center h-5 mt-1">
-                            <input id="formacao-6" type="checkbox" name="training_topics" value="23 - Devoluções" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
-                        </div>
-                        <div class="ml-3 text-sm">
-                            <label for="formacao-6" class="font-medium text-gray-700">23 - Devoluções</label>
-                        </div>
-                    </div>
-                    <div class="flex items-start">
-                        <div class="flex items-center h-5 mt-1">
-                            <input id="formacao-7" type="checkbox" name="training_topics" value="28 - Máquina de Blisters" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
-                        </div>
-                        <div class="ml-3 text-sm">
-                            <label for="formacao-7" class="font-medium text-gray-700">28 - Máquina de Blisters</label>
-                        </div>
-                    </div>
-                    <div class="flex items-start">
-                        <div class="flex items-center h-5 mt-1">
-                            <input id="formacao-8" type="checkbox" name="training_topics" value="21 - Arrumação de armazém – Visão 5S’s" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
-                        </div>
-                        <div class="ml-3 text-sm">
-                            <label for="formacao-8" class="font-medium text-gray-700">21 - Arrumação de armazém – Visão 5S’s</label>
-                        </div>
-                    </div>
-                    <div class="flex items-start">
-                        <div class="flex items-center h-5 mt-1">
-                            <input id="formacao-9" type="checkbox" name="training_topics" value="OKR’s" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
-                        </div>
-                        <div class="ml-3 text-sm">
-                            <label for="formacao-9" class="font-medium text-gray-700">OKR’s</label>
-                        </div>
-                    </div>
+                <div id="training-topics-list" class="space-y-3">
+                    <!-- Checkboxes de formação serão carregados dinamicamente via JS -->
+                    <p class="text-center text-gray-500">A carregar tópicos de formação...</p>
                 </div>
             </div>
 
@@ -244,11 +194,50 @@
         </form>
 
         <!-- Seção de Visualização dos Formulários Submetidos -->
-        <div class="mt-12">
-            <h2 class="text-xl sm:text-2xl font-bold text-indigo-700 border-b-2 border-indigo-200 pb-2 mb-4"><i class="fas fa-database mr-2"></i>Fichas de Formação Submetidas</h2>
-            <div id="forms-list" class="space-y-4">
-                <p class="text-center text-gray-500" id="loading-message">A carregar dados...</p>
-                <!-- O conteúdo será preenchido via JavaScript -->
+        <div id="admin-view" class="w-full max-w-4xl hidden">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-center text-indigo-800 mb-6">Painel de Administrador</h1>
+
+            <!-- Seção de Gestão de Tópicos de Formação -->
+            <div class="mt-12 bg-gray-100 p-6 rounded-lg border border-gray-200">
+                <h2 class="text-xl sm:text-2xl font-bold text-indigo-700 border-b-2 border-indigo-200 pb-2 mb-4"><i class="fas fa-edit mr-2"></i>Gerir Tópicos de Formação</h2>
+                <div id="admin-training-topics-list" class="space-y-4 mb-4">
+                    <p class="text-center text-gray-500">A carregar tópicos...</p>
+                    <!-- Tópicos gerenciáveis serão carregados aqui -->
+                </div>
+                <div class="mt-4 flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <input type="text" id="new-topic-input" placeholder="Novo tópico de formação" class="flex-grow rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-2 border">
+                    <button id="add-topic-button" class="w-full sm:w-auto px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-300 ease-in-out transform hover:scale-105">
+                        <i class="fas fa-plus mr-2"></i>Adicionar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Seção de Relatórios -->
+            <div class="mt-12 bg-gray-100 p-6 rounded-lg border border-gray-200">
+                <h2 class="text-xl sm:text-2xl font-bold text-indigo-700 border-b-2 border-indigo-200 pb-2 mb-4"><i class="fas fa-chart-bar mr-2"></i>Relatórios de Formulários</h2>
+                <div class="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <div class="flex-grow w-full">
+                        <label for="start-date" class="block text-sm font-medium text-gray-700">Data de Início</label>
+                        <input type="date" id="start-date" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-2 border">
+                    </div>
+                    <div class="flex-grow w-full">
+                        <label for="end-date" class="block text-sm font-medium text-gray-700">Data de Fim</label>
+                        <input type="date" id="end-date" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-2 border">
+                    </div>
+                    <button id="generate-report-button" class="w-full sm:w-auto px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-300 ease-in-out transform hover:scale-105">
+                        <i class="fas fa-file-excel mr-2"></i>Gerar Relatório (XLS)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Lista de Formulários Submetidos -->
+            <div class="mt-12">
+                <h2 class="text-xl sm:text-2xl font-bold text-indigo-700 border-b-2 border-indigo-200 pb-2 mb-4"><i class="fas fa-database mr-2"></i>Fichas de Formação Submetidas</h2>
+                <p class="text-sm text-gray-600 mb-4">ID de Utilizador para partilha: <span id="user-id-display" class="font-mono bg-gray-200 rounded-md p-1 break-all"></span></p>
+                <div id="forms-list" class="space-y-4">
+                    <p class="text-center text-gray-500" id="loading-forms-message">A carregar dados...</p>
+                    <!-- Os formulários preenchidos serão carregados aqui -->
+                </div>
             </div>
         </div>
     </div>
@@ -257,7 +246,7 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, onSnapshot, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getFirestore, onSnapshot, collection, addDoc, getDocs, doc, deleteDoc, updateDoc, serverTimestamp, query, where } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
         // Variáveis de ambiente fornecidas pelo Canvas
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
@@ -265,8 +254,18 @@
         const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
 
         let db, auth, userId;
+        const ADMIN_ID = "admin_user_id";
+        const ADMIN_USERNAME = "Admin";
+        const ADMIN_PASSWORD = "Admin123";
 
-        // Função para inicializar o Firebase e autenticar
+        const loginContainer = document.getElementById('login-container');
+        const formContainer = document.getElementById('form-container');
+        const adminView = document.getElementById('admin-view');
+        const loadingFormsMessage = document.getElementById('loading-forms-message');
+        const trainingTopicsList = document.getElementById('training-topics-list');
+        const adminTrainingTopicsList = document.getElementById('admin-training-topics-list');
+
+        // Autenticação e inicialização
         async function initializeFirebase() {
             try {
                 const app = initializeApp(firebaseConfig);
@@ -279,35 +278,85 @@
                     await signInAnonymously(auth);
                 }
 
-                // O listener de estado de autenticação garante que a UI seja atualizada
                 onAuthStateChanged(auth, (user) => {
-                    const loadingMessage = document.getElementById('loading-message');
                     if (user) {
                         userId = user.uid;
-                        // Exibe o ID do usuário para fins de depuração/identificação
                         console.log("Authenticated as user:", userId);
-                        loadingMessage.textContent = 'A carregar seus formulários...';
-
-                        // Inicia o listener do Firestore para os dados
-                        setupFirestoreListener();
+                        // A UI é gerida pela submissão do formulário de login
                     } else {
                         console.log("No user is signed in.");
-                        loadingMessage.textContent = 'Por favor, autentique-se para ver os seus formulários.';
                     }
                 });
+
+                // Carrega os tópicos de formação para o formulário do colaborador
+                loadTrainingTopicsForCollaborator();
             } catch (e) {
                 console.error("Error during Firebase initialization:", e);
-                document.getElementById('loading-message').textContent = 'Ocorreu um erro ao carregar os dados.';
             }
         }
         
-        // Função para configurar o listener do Firestore (agora privado)
-        function setupFirestoreListener() {
-            if (!userId) {
-                console.error("User ID is not available. Cannot set up Firestore listener.");
-                return;
+        // Carrega os tópicos de formação para o formulário do colaborador
+        function loadTrainingTopicsForCollaborator() {
+            const topicsRef = collection(db, `/artifacts/${appId}/public/data/training_topics`);
+            onSnapshot(topicsRef, (snapshot) => {
+                const fragment = document.createDocumentFragment();
+                if (snapshot.empty) {
+                    const p = document.createElement('p');
+                    p.classList.add('text-center', 'text-gray-500');
+                    p.textContent = 'Nenhum tópico de formação disponível. Por favor, contacte o seu administrador.';
+                    fragment.appendChild(p);
+                } else {
+                    snapshot.forEach(doc => {
+                        const data = doc.data();
+                        const div = document.createElement('div');
+                        div.classList.add('flex', 'items-start');
+                        div.innerHTML = `
+                            <div class="flex items-center h-5 mt-1">
+                                <input id="topic-${doc.id}" type="checkbox" name="training_topics" value="${data.name}" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                            </div>
+                            <div class="ml-3 text-sm">
+                                <label for="topic-${doc.id}" class="font-medium text-gray-700">${data.name}</label>
+                            </div>
+                        `;
+                        fragment.appendChild(div);
+                    });
+                }
+                trainingTopicsList.innerHTML = '';
+                trainingTopicsList.appendChild(fragment);
+            });
+        }
+
+        // Lida com o login do utilizador
+        document.getElementById('login-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
+                // Autenticação de Admin
+                loginContainer.classList.add('hidden');
+                formContainer.classList.add('hidden');
+                adminView.classList.remove('hidden');
+                document.body.classList.add('bg-gray-100');
+                document.body.classList.remove('flex', 'items-center', 'justify-center');
+                setupFirestoreListenerForAdmin();
+                loadAdminTrainingTopics();
+            } else {
+                alert("Credenciais de administrador inválidas. O acesso está bloqueado.");
             }
-            const formsRef = collection(db, `/artifacts/${appId}/users/${userId}/private_training_forms`);
+        });
+        
+        // Lidar com a entrada do colaborador
+        document.getElementById('collaborator-button').addEventListener('click', async function(event) {
+            event.preventDefault();
+            loginContainer.classList.add('hidden');
+            formContainer.classList.remove('hidden');
+            adminView.classList.add('hidden');
+        });
+
+        // Configura o listener do Firestore para a base de dados do Admin
+        function setupFirestoreListenerForAdmin() {
+            const formsRef = collection(db, `/artifacts/${appId}/public/data/training_forms`);
             onSnapshot(formsRef, (snapshot) => {
                 const formsList = document.getElementById('forms-list');
                 formsList.innerHTML = '';
@@ -317,22 +366,150 @@
                     snapshot.forEach((doc) => {
                         const data = doc.data();
                         const formItem = document.createElement('div');
-                        formItem.classList.add('bg-gray-50', 'p-4', 'rounded-lg', 'shadow-sm', 'border', 'border-gray-200');
+                        formItem.classList.add('bg-white', 'p-4', 'rounded-lg', 'shadow-sm', 'border', 'border-gray-200', 'flex', 'flex-col', 'sm:flex-row', 'items-center', 'justify-between');
                         formItem.innerHTML = `
-                            <p class="font-bold text-lg text-indigo-700">${data.name}</p>
-                            <p class="text-sm text-gray-600">Admissão: ${data['admission-date']}</p>
-                            <p class="text-sm text-gray-600">Cargo: ${data.position}</p>
-                            <p class="text-sm text-gray-600">ID do Documento: ${doc.id}</p>
+                            <div class="flex-grow mb-4 sm:mb-0">
+                                <p class="font-bold text-lg text-indigo-700">${data.name}</p>
+                                <p class="text-sm text-gray-600">Admissão: ${data['admission-date']}</p>
+                                <p class="text-sm text-gray-600">Cargo: ${data.position}</p>
+                            </div>
+                            <button class="export-button px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-blue-600 hover:bg-blue-700 transition duration-300 ease-in-out transform hover:scale-105" data-doc-id="${doc.id}">
+                                <i class="fas fa-file-excel mr-2"></i>Exportar para Excel
+                            </button>
                         `;
                         formsList.appendChild(formItem);
                     });
                 }
             });
         }
+        
+        // Função para carregar os tópicos de formação para a aba de administrador
+        function loadAdminTrainingTopics() {
+            const topicsRef = collection(db, `/artifacts/${appId}/public/data/training_topics`);
+            onSnapshot(topicsRef, (snapshot) => {
+                adminTrainingTopicsList.innerHTML = '';
+                snapshot.forEach(doc => {
+                    const data = doc.data();
+                    const item = document.createElement('div');
+                    item.classList.add('flex', 'items-center', 'justify-between', 'bg-white', 'p-3', 'rounded-md', 'shadow-sm');
+                    item.innerHTML = `
+                        <input type="text" value="${data.name}" data-doc-id="${doc.id}" class="flex-grow mr-4 p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-1 focus:ring-indigo-500">
+                        <div>
+                            <button class="delete-topic-button text-red-500 hover:text-red-700 transition" data-doc-id="${doc.id}">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    `;
+                    adminTrainingTopicsList.appendChild(item);
+                });
+            });
+        }
 
-        // Lida com a submissão do formulário
+        // Função para exportar um formulário individualmente
+        document.addEventListener('click', async function(event) {
+            if (event.target.classList.contains('export-button')) {
+                const docId = event.target.getAttribute('data-doc-id');
+                const formsRef = collection(db, `/artifacts/${appId}/public/data/training_forms`);
+                const formDoc = doc(formsRef, docId);
+                const docSnap = await getDoc(formDoc);
+
+                if (docSnap.exists()) {
+                    const data = docSnap.data();
+                    // Converte os dados para um formato CSV
+                    let csvContent = "";
+                    const headers = Object.keys(data).join(";");
+                    const values = Object.values(data).map(value => {
+                        if (Array.isArray(value)) {
+                            return `"${value.join(', ')}"`;
+                        }
+                        if (typeof value === 'object' && value !== null) {
+                            return `"${JSON.stringify(value).replace(/"/g, '""')}"`;
+                        }
+                        return `"${value}"`;
+                    }).join(";");
+                    csvContent += headers + "\n" + values;
+
+                    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+                    const link = document.createElement("a");
+                    const url = URL.createObjectURL(blob);
+                    link.setAttribute("href", url);
+                    link.setAttribute("download", `formulario_${docId}.csv`);
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                } else {
+                    alert("Documento não encontrado.");
+                }
+            }
+        });
+
+        // Adicionar novo tópico de formação
+        document.getElementById('add-topic-button').addEventListener('click', async function() {
+            const newTopicInput = document.getElementById('new-topic-input');
+            const topicName = newTopicInput.value.trim();
+            if (topicName) {
+                try {
+                    const topicsRef = collection(db, `/artifacts/${appId}/public/data/training_topics`);
+                    await addDoc(topicsRef, { name: topicName });
+                    newTopicInput.value = '';
+                } catch (e) {
+                    console.error("Erro ao adicionar tópico: ", e);
+                }
+            }
+        });
+
+        // Deletar tópico de formação
+        adminTrainingTopicsList.addEventListener('click', async function(event) {
+            if (event.target.classList.contains('delete-topic-button')) {
+                const docId = event.target.getAttribute('data-doc-id');
+                try {
+                    const topicsRef = collection(db, `/artifacts/${appId}/public/data/training_topics`);
+                    await deleteDoc(doc(topicsRef, docId));
+                } catch (e) {
+                    console.error("Erro ao deletar tópico: ", e);
+                }
+            }
+        });
+
+        // Gerar relatório de formulários
+        document.getElementById('generate-report-button').addEventListener('click', async function() {
+            const startDate = document.getElementById('start-date').value;
+            const endDate = document.getElementById('end-date').value;
+
+            if (!startDate || !endDate) {
+                alert("Por favor, selecione as datas de início e fim.");
+                return;
+            }
+
+            const formsRef = collection(db, `/artifacts/${appId}/public/data/training_forms`);
+            const q = query(formsRef, where("timestamp", ">=", new Date(startDate)), where("timestamp", "<=", new Date(endDate)));
+            const querySnapshot = await getDocs(q);
+
+            if (querySnapshot.empty) {
+                alert("Nenhum formulário encontrado no período selecionado.");
+                return;
+            }
+
+            let csvContent = "Nome;Data Admissão;Setor;Cargo\n";
+            querySnapshot.forEach(doc => {
+                const data = doc.data();
+                const row = [data.name, data['admission-date'], data.sector, data.position].map(val => `"${val}"`).join(";");
+                csvContent += row + "\n";
+            });
+
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement("a");
+            const url = URL.createObjectURL(blob);
+            link.setAttribute("href", url);
+            link.setAttribute("download", `relatorio_${startDate}_${endDate}.xls`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+
+        // Lidar com a submissão do formulário
         document.getElementById('submit-button').addEventListener('click', async function(event) {
-            event.preventDefault(); // Impede a submissão padrão do formulário
+            event.preventDefault(); 
             
             const form = document.getElementById('training-form');
             const statusMessage = document.getElementById('status-message');
@@ -345,23 +522,19 @@
 
             const formData = new FormData(form);
             const data = {
-                // Adiciona a timestamp para ordenar as submissões
                 timestamp: serverTimestamp(),
             };
 
-            // Coleta dados dos campos de texto e data
             for (const [key, value] of formData.entries()) {
                 data[key] = value;
             }
 
-            // Coleta dados dos checkboxes marcados
             const trainingTopics = [];
             form.querySelectorAll('input[name="training_topics"]:checked').forEach(cb => {
                 trainingTopics.push(cb.value);
             });
             data.training_topics = trainingTopics;
 
-            // Coleta dados dos checkboxes de entrega de itens e os nomes
             data['items_delivered'] = {
                 'Cartão de ponto / Acesso': {
                     delivered: form.querySelector('input[name="item-delivered-cartao"]').checked,
@@ -378,11 +551,11 @@
             };
 
             try {
-                const formsRef = collection(db, `/artifacts/${appId}/users/${userId}/private_training_forms`);
+                const formsRef = collection(db, `/artifacts/${appId}/public/data/training_forms`);
                 await addDoc(formsRef, data);
                 
                 statusMessage.textContent = 'Formulário submetido com sucesso!';
-                form.reset(); // Limpa o formulário após a submissão
+                form.reset();
             } catch (e) {
                 console.error("Error adding document: ", e);
                 statusMessage.textContent = 'Erro ao submeter o formulário. Por favor, tente novamente.';
