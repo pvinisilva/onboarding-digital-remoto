@@ -186,11 +186,11 @@
 
             <!-- Botão para Submeter os Dados -->
             <div class="flex justify-center mt-10">
-                <button type="button" id="submit-button" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-300 ease-in-out transform hover:scale-105">
+                <button type="button" id="submit-button" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-300 ease-in-out transform hover:scale-105 disabled:bg-indigo-400" disabled>
                     <i class="fas fa-paper-plane mr-2"></i> Submeter Formulário
                 </button>
             </div>
-            <div id="status-message" class="mt-4 text-center text-sm font-medium text-gray-700"></div>
+            <div id="status-message" class="mt-4 text-center text-sm font-medium text-gray-700">A carregar...</div>
         </form>
 
         <!-- Seção de Visualização dos Formulários Submetidos -->
@@ -264,6 +264,9 @@
         const loadingFormsMessage = document.getElementById('loading-forms-message');
         const trainingTopicsList = document.getElementById('training-topics-list');
         const adminTrainingTopicsList = document.getElementById('admin-training-topics-list');
+        const submitButton = document.getElementById('submit-button');
+        const statusMessage = document.getElementById('status-message');
+
 
         // Autenticação e inicialização
         async function initializeFirebase() {
@@ -282,7 +285,8 @@
                     if (user) {
                         userId = user.uid;
                         console.log("Authenticated as user:", userId);
-                        // A UI é gerida pela submissão do formulário de login
+                        submitButton.disabled = false;
+                        statusMessage.textContent = 'Autenticação concluída. Pode submeter o formulário.';
                     } else {
                         console.log("No user is signed in.");
                     }
@@ -292,6 +296,8 @@
                 loadTrainingTopicsForCollaborator();
             } catch (e) {
                 console.error("Error during Firebase initialization:", e);
+                statusMessage.textContent = 'Erro de inicialização do Firebase. Por favor, atualize a página.';
+                submitButton.disabled = true;
             }
         }
         
@@ -352,6 +358,7 @@
             loginContainer.classList.add('hidden');
             formContainer.classList.remove('hidden');
             adminView.classList.add('hidden');
+            statusMessage.textContent = 'Aguarde, a aplicação está a ser inicializada...';
         });
 
         // Configura o listener do Firestore para a base de dados do Admin
@@ -512,14 +519,8 @@
             event.preventDefault(); 
             
             const form = document.getElementById('training-form');
-            const statusMessage = document.getElementById('status-message');
             statusMessage.textContent = 'A submeter formulário...';
             
-            if (!userId) {
-                statusMessage.textContent = 'Erro: Por favor, aguarde a autenticação ou atualize a página.';
-                return;
-            }
-
             const formData = new FormData(form);
             const data = {
                 timestamp: serverTimestamp(),
