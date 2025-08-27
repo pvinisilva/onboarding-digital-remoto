@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Formação (com Banco de Dados)</title>
+    <!-- Inclui a fonte Inter do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Inclui a biblioteca de ícones Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9I4/G1/Pq16fVzKq80fP9nL/C1I9qEwT659A1q" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Inclui o framework Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            color: #1f2937;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4 sm:p-6 lg:p-8">
+    <div class="w-full max-w-4xl bg-white shadow-xl rounded-2xl p-6 sm:p-8 lg:p-10 border border-gray-200">
+        <!-- Título do Formulário -->
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-center text-indigo-800 mb-2">Ficha de Formação Inicial</h1>
+        <p class="text-md sm:text-lg text-center text-gray-500 mb-8">Preencha as informações para o novo colaborador remoto.</p>
+        
+        <form id="training-form" class="space-y-8">
+            <!-- Seção 1: Dados do Colaborador -->
+            <div>
+                <h2 class="text-xl sm:text-2xl font-bold text-indigo-700 border-b-2 border-indigo-200 pb-2 mb-4"><i class="fas fa-user-circle mr-2"></i>Dados do Colaborador</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700">Nome</label>
+                        <input type="text" id="name" name="name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-2 border">
+                    </div>
+                    <div>
+                        <label for="admission-date" class="block text-sm font-medium text-gray-700">Admissão</label>
+                        <input type="date" id="admission-date" name="admission-date" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-2 border">
+                    </div>
+                    <div>
+                        <label for="sector" class="block text-sm font-medium text-gray-700">Setor</label>
+                        <input type="text" id="sector" name="sector" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-2 border">
+                    </div>
+                    <div>
+                        <label for="position" class="block text-sm font-medium text-gray-700">Cargo</label>
+                        <input type="text" id="position" name="position" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-2 border">
+                    </div>
+                    <div>
+                        <label for="training-period" class="block text-sm font-medium text-gray-700">Período de Formação</label>
+                        <input type="text" id="training-period" name="training-period" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-2 border" placeholder="Ex: 09/07/2025 – 15/07/2025">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção 2: Objetivo da Formação -->
+            <div>
+                <h2 class="text-xl sm:text-2xl font-bold text-indigo-700 border-b-2 border-indigo-200 pb-2 mb-4"><i class="fas fa-bullseye mr-2"></i>Objetivo da Formação</h2>
+                <p class="text-gray-600 leading-relaxed text-sm sm:text-base">Garantir a integração adequada do(a) colaborador(a), alinhamento às normas da empresa, segurança e domínio das atividades essenciais da função.</p>
+            </div>
+
+            <!-- Seção 3: Corpo da Formação -->
+            <div>
+                <h2 class="text-xl sm:text-2xl font-bold text-indigo-700 border-b-2 border-indigo-200 pb-2 mb-4"><i class="fas fa-clipboard-list mr-2"></i>Corpo da Formação</h2>
+                <div class="space-y-3">
+                    <div class="flex items-start">
+                        <div class="flex items-center h-5 mt-1">
+                            <input id="formacao-1" type="checkbox" name="training_topics" value="Aplicação Jibble – Pontos" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                        </div>
+                        <div class="ml-3 text-sm">
+                            <label for="formacao-1" class="font-medium text-gray-700">Aplicação Jibble – Pontos</label>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="flex items-center h-5 mt-1">
+                            <input id="formacao-2" type="checkbox" name="training_topics" value="27 - Embalamento" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                        </div>
+                        <div class="ml-3 text-sm">
+                            <label for="formacao-2" class="font-medium text-gray-700">27 - Embalamento</label>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="flex items-center h-5 mt-1">
+                            <input id="formacao-3" type="checkbox" name="training_topics" value="24 - Recolha de encomendas" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                        </div>
+                        <div class="ml-3 text-sm">
+                            <label for="formacao-3" class="font-medium text-gray-700">24 - Recolha de encomendas</label>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="flex items-center h-5 mt-1">
+                            <input id="formacao-4" type="checkbox" name="training_topics" value="19 - Procedimento de expedição – GLS" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                        </div>
+                        <div class="ml-3 text-sm">
+                            <label for="formacao-4" class="font-medium text-gray-700">19 - Procedimento de expedição – GLS</label>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="flex items-center h-5 mt-1">
+                            <input id="formacao-5" type="checkbox" name="training_topics" value="17 - Entrada de produtos" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                        </div>
+                        <div class="ml-3 text-sm">
+                            <label for="formacao-5" class="font-medium text-gray-700">17 - Entrada de produtos</label>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="flex items-center h-5 mt-1">
+                            <input id="formacao-6" type="checkbox" name="training_topics" value="23 - Devoluções" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                        </div>
+                        <div class="ml-3 text-sm">
+                            <label for="formacao-6" class="font-medium text-gray-700">23 - Devoluções</label>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="flex items-center h-5 mt-1">
+                            <input id="formacao-7" type="checkbox" name="training_topics" value="28 - Máquina de Blisters" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                        </div>
+                        <div class="ml-3 text-sm">
+                            <label for="formacao-7" class="font-medium text-gray-700">28 - Máquina de Blisters</label>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="flex items-center h-5 mt-1">
+                            <input id="formacao-8" type="checkbox" name="training_topics" value="21 - Arrumação de armazém – Visão 5S’s" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                        </div>
+                        <div class="ml-3 text-sm">
+                            <label for="formacao-8" class="font-medium text-gray-700">21 - Arrumação de armazém – Visão 5S’s</label>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="flex items-center h-5 mt-1">
+                            <input id="formacao-9" type="checkbox" name="training_topics" value="OKR’s" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                        </div>
+                        <div class="ml-3 text-sm">
+                            <label for="formacao-9" class="font-medium text-gray-700">OKR’s</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção 4: Checklist de Entrega de Itens -->
+            <div>
+                <h2 class="text-xl sm:text-2xl font-bold text-indigo-700 border-b-2 border-indigo-200 pb-2 mb-4"><i class="fas fa-check-circle mr-2"></i>Checklist de Entrega de Itens</h2>
+                <div class="space-y-4">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center">
+                        <div class="flex items-center flex-shrink-0">
+                            <input id="item-1-delivered" type="checkbox" name="item-delivered-cartao" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded mr-2">
+                            <label for="item-1-delivered" class="text-sm font-medium text-gray-700">Cartão de ponto / Acesso</label>
+                        </div>
+                        <input type="text" name="item-delivered-by-cartao" placeholder="Entregue por quem?" class="mt-2 sm:mt-0 sm:ml-4 flex-grow rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-2 border">
+                    </div>
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center">
+                        <div class="flex items-center flex-shrink-0">
+                            <input id="item-2-delivered" type="checkbox" name="item-delivered-manual" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded mr-2">
+                            <label for="item-2-delivered" class="text-sm font-medium text-gray-700">Manual interno / Guia rápido</label>
+                        </div>
+                        <input type="text" name="item-delivered-by-manual" placeholder="Entregue por quem?" class="mt-2 sm:mt-0 sm:ml-4 flex-grow rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-2 border">
+                    </div>
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center">
+                        <div class="flex items-center flex-shrink-0">
+                            <input id="item-3-delivered" type="checkbox" name="item-delivered-email" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded mr-2">
+                            <label for="item-3-delivered" class="text-sm font-medium text-gray-700">E-mail / Sistema liberado</label>
+                        </div>
+                        <input type="text" name="item-delivered-by-email" placeholder="Entregue por quem?" class="mt-2 sm:mt-0 sm:ml-4 flex-grow rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-2 border">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção 5: Avaliação do Treinamento -->
+            <div>
+                <h2 class="text-xl sm:text-2xl font-bold text-indigo-700 border-b-2 border-indigo-200 pb-2 mb-4"><i class="fas fa-star mr-2"></i>Avaliação do Treinamento – 1ª Semana</h2>
+                <div class="space-y-4">
+                    <!-- Pergunta 1 -->
+                    <fieldset>
+                        <legend class="text-sm font-medium text-gray-700">O colaborador compreendeu as principais funções da sua atividade?</legend>
+                        <div class="mt-2 flex items-center space-x-6">
+                            <div class="flex items-center">
+                                <input id="compreendeu-sim" name="compreensao" type="radio" value="Sim" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                                <label for="compreendeu-sim" class="ml-2 block text-sm font-medium text-gray-700">Sim</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input id="compreendeu-parcialmente" name="compreensao" type="radio" value="Parcialmente" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                                <label for="compreendeu-parcialmente" class="ml-2 block text-sm font-medium text-gray-700">Parcialmente</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input id="compreendeu-nao" name="compreensao" type="radio" value="Não" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                                <label for="compreendeu-nao" class="ml-2 block text-sm font-medium text-gray-700">Não</label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Pergunta 2 -->
+                    <fieldset>
+                        <legend class="text-sm font-medium text-gray-700">Mostrou-se engajado(a) e proativo(a) durante o período?</legend>
+                        <div class="mt-2 flex items-center space-x-6">
+                            <div class="flex items-center">
+                                <input id="engajado-sim" name="engajamento" type="radio" value="Sim" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                                <label for="engajado-sim" class="ml-2 block text-sm font-medium text-gray-700">Sim</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input id="engajado-parcialmente" name="engajamento" type="radio" value="Parcialmente" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                                <label for="engajado-parcialmente" class="ml-2 block text-sm font-medium text-gray-700">Parcialmente</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input id="engajado-nao" name="engajamento" type="radio" value="Não" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                                <label for="engajado-nao" class="ml-2 block text-sm font-medium text-gray-700">Não</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                    
+                    <!-- Comentários do Líder -->
+                    <div>
+                        <label for="leader-comments" class="block text-sm font-medium text-gray-700">Comentários do líder</label>
+                        <textarea id="leader-comments" name="leader-comments" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-2 border"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção 6: Assinaturas Finais -->
+            <div>
+                <h2 class="text-xl sm:text-2xl font-bold text-indigo-700 border-b-2 border-indigo-200 pb-2 mb-4"><i class="fas fa-signature mr-2"></i>Assinaturas Finais</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div>
+                        <label for="leader-signature" class="block text-sm font-medium text-gray-700">Líder / Padrinho</label>
+                        <input type="text" id="leader-signature" name="leader-signature" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-2 border">
+                    </div>
+                    <div>
+                        <label for="collaborator-signature" class="block text-sm font-medium text-gray-700">Colaborador (Formado)</label>
+                        <input type="text" id="collaborator-signature" name="collaborator-signature" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-2 border">
+                    </div>
+                    <div>
+                        <label for="hr-signature" class="block text-sm font-medium text-gray-700">Recursos Humanos</label>
+                        <input type="text" id="hr-signature" name="hr-signature" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-2 border">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botão para Submeter os Dados -->
+            <div class="flex justify-center mt-10">
+                <button type="button" id="submit-button" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-300 ease-in-out transform hover:scale-105">
+                    <i class="fas fa-paper-plane mr-2"></i> Submeter Formulário
+                </button>
+            </div>
+            <div id="status-message" class="mt-4 text-center text-sm font-medium text-gray-700"></div>
+        </form>
+
+        <!-- Seção de Visualização dos Formulários Submetidos -->
+        <div class="mt-12">
+            <h2 class="text-xl sm:text-2xl font-bold text-indigo-700 border-b-2 border-indigo-200 pb-2 mb-4"><i class="fas fa-database mr-2"></i>Fichas de Formação Submetidas</h2>
+            <div id="forms-list" class="space-y-4">
+                <p class="text-center text-gray-500" id="loading-message">A carregar dados...</p>
+                <!-- O conteúdo será preenchido via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts do Firebase -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, onSnapshot, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Variáveis de ambiente fornecidas pelo Canvas
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+
+        let db, auth, userId;
+
+        // Função para inicializar o Firebase e autenticar
+        async function initializeFirebase() {
+            try {
+                const app = initializeApp(firebaseConfig);
+                auth = getAuth(app);
+                db = getFirestore(app);
+
+                if (initialAuthToken) {
+                    await signInWithCustomToken(auth, initialAuthToken);
+                } else {
+                    await signInAnonymously(auth);
+                }
+
+                // O listener de estado de autenticação garante que a UI seja atualizada
+                onAuthStateChanged(auth, (user) => {
+                    const loadingMessage = document.getElementById('loading-message');
+                    if (user) {
+                        userId = user.uid;
+                        // Exibe o ID do usuário para fins de depuração/identificação
+                        console.log("Authenticated as user:", userId);
+                        loadingMessage.textContent = 'A carregar seus formulários...';
+
+                        // Inicia o listener do Firestore para os dados
+                        setupFirestoreListener();
+                    } else {
+                        console.log("No user is signed in.");
+                        loadingMessage.textContent = 'Por favor, autentique-se para ver os seus formulários.';
+                    }
+                });
+            } catch (e) {
+                console.error("Error during Firebase initialization:", e);
+                document.getElementById('loading-message').textContent = 'Ocorreu um erro ao carregar os dados.';
+            }
+        }
+        
+        // Função para configurar o listener do Firestore (agora privado)
+        function setupFirestoreListener() {
+            if (!userId) {
+                console.error("User ID is not available. Cannot set up Firestore listener.");
+                return;
+            }
+            const formsRef = collection(db, `/artifacts/${appId}/users/${userId}/private_training_forms`);
+            onSnapshot(formsRef, (snapshot) => {
+                const formsList = document.getElementById('forms-list');
+                formsList.innerHTML = '';
+                if (snapshot.empty) {
+                    formsList.innerHTML = '<p class="text-center text-gray-500">Nenhum formulário submetido ainda.</p>';
+                } else {
+                    snapshot.forEach((doc) => {
+                        const data = doc.data();
+                        const formItem = document.createElement('div');
+                        formItem.classList.add('bg-gray-50', 'p-4', 'rounded-lg', 'shadow-sm', 'border', 'border-gray-200');
+                        formItem.innerHTML = `
+                            <p class="font-bold text-lg text-indigo-700">${data.name}</p>
+                            <p class="text-sm text-gray-600">Admissão: ${data['admission-date']}</p>
+                            <p class="text-sm text-gray-600">Cargo: ${data.position}</p>
+                            <p class="text-sm text-gray-600">ID do Documento: ${doc.id}</p>
+                        `;
+                        formsList.appendChild(formItem);
+                    });
+                }
+            });
+        }
+
+        // Lida com a submissão do formulário
+        document.getElementById('submit-button').addEventListener('click', async function(event) {
+            event.preventDefault(); // Impede a submissão padrão do formulário
+            
+            const form = document.getElementById('training-form');
+            const statusMessage = document.getElementById('status-message');
+            statusMessage.textContent = 'A submeter formulário...';
+            
+            if (!userId) {
+                statusMessage.textContent = 'Erro: Por favor, aguarde a autenticação ou atualize a página.';
+                return;
+            }
+
+            const formData = new FormData(form);
+            const data = {
+                // Adiciona a timestamp para ordenar as submissões
+                timestamp: serverTimestamp(),
+            };
+
+            // Coleta dados dos campos de texto e data
+            for (const [key, value] of formData.entries()) {
+                data[key] = value;
+            }
+
+            // Coleta dados dos checkboxes marcados
+            const trainingTopics = [];
+            form.querySelectorAll('input[name="training_topics"]:checked').forEach(cb => {
+                trainingTopics.push(cb.value);
+            });
+            data.training_topics = trainingTopics;
+
+            // Coleta dados dos checkboxes de entrega de itens e os nomes
+            data['items_delivered'] = {
+                'Cartão de ponto / Acesso': {
+                    delivered: form.querySelector('input[name="item-delivered-cartao"]').checked,
+                    by: form.querySelector('input[name="item-delivered-by-cartao"]').value,
+                },
+                'Manual interno / Guia rápido': {
+                    delivered: form.querySelector('input[name="item-delivered-manual"]').checked,
+                    by: form.querySelector('input[name="item-delivered-by-manual"]').value,
+                },
+                'E-mail / Sistema liberado': {
+                    delivered: form.querySelector('input[name="item-delivered-email"]').checked,
+                    by: form.querySelector('input[name="item-delivered-by-email"]').value,
+                },
+            };
+
+            try {
+                const formsRef = collection(db, `/artifacts/${appId}/users/${userId}/private_training_forms`);
+                await addDoc(formsRef, data);
+                
+                statusMessage.textContent = 'Formulário submetido com sucesso!';
+                form.reset(); // Limpa o formulário após a submissão
+            } catch (e) {
+                console.error("Error adding document: ", e);
+                statusMessage.textContent = 'Erro ao submeter o formulário. Por favor, tente novamente.';
+            }
+        });
+
+        // Inicia a aplicação
+        initializeFirebase();
+    </script>
+</body>
+</html>
