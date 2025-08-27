@@ -296,6 +296,9 @@
                     }
                 });
 
+                // Pre-popula os tópicos de formação se não existirem
+                await checkAndCreateDefaultTopics();
+
                 // Carrega os tópicos de formação para o formulário do colaborador
                 loadTrainingTopicsForCollaborator();
             } catch (e) {
@@ -305,6 +308,29 @@
             }
         }
         
+        async function checkAndCreateDefaultTopics() {
+            const topicsRef = collection(db, `/artifacts/${appId}/public/data/training_topics`);
+            const snapshot = await getDocs(topicsRef);
+            if (snapshot.empty) {
+                console.log("No training topics found. Creating default topics.");
+                const defaultTopics = [
+                    "Aplicação Jibble – Pontos",
+                    "27 - Embalamento",
+                    "24 - Recolha de encomendas",
+                    "19 - Procedimento de expedição – GLS",
+                    "17 - Entrada de produtos",
+                    "23 - Devoluções",
+                    "28 - Máquina de Blisters",
+                    "21 - Arrumação de armazém – Visão 5S’s",
+                    "OKR’s"
+                ];
+                for (const topic of defaultTopics) {
+                    await addDoc(topicsRef, { name: topic });
+                }
+                console.log("Default training topics created.");
+            }
+        }
+
         // Carrega os tópicos de formação para o formulário do colaborador
         function loadTrainingTopicsForCollaborator() {
             const topicsRef = collection(db, `/artifacts/${appId}/public/data/training_topics`);
