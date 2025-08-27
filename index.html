@@ -260,7 +260,6 @@
         const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
 
         let db, auth, userId;
-        const ADMIN_ID = "admin_user_id";
         const ADMIN_USERNAME = "Admin";
         const ADMIN_PASSWORD = "Admin123";
 
@@ -344,7 +343,6 @@
             const password = document.getElementById('password').value;
 
             if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
-                // Autenticação de Admin
                 loginContainer.classList.add('hidden');
                 formContainer.classList.add('hidden');
                 adminView.classList.remove('hidden');
@@ -352,6 +350,8 @@
                 document.body.classList.remove('flex', 'items-center', 'justify-center');
                 setupFirestoreListenerForAdmin();
                 loadAdminTrainingTopics();
+                // Exibe a primeira seção do menu por padrão
+                document.getElementById('forms-submitted-section').classList.remove('hidden');
             } else {
                 alert("Credenciais de administrador inválidas. O acesso está bloqueado.");
             }
@@ -541,6 +541,12 @@
         // Lidar com a submissão do formulário
         document.getElementById('submit-button').addEventListener('click', async function(event) {
             event.preventDefault(); 
+            
+            // Verifica se a autenticação foi concluída
+            if (!userId) {
+                statusMessage.textContent = 'Erro: Por favor, aguarde a autenticação ou atualize a página.';
+                return;
+            }
             
             const form = document.getElementById('training-form');
             statusMessage.textContent = 'A submeter formulário...';
